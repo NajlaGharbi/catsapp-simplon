@@ -1,19 +1,19 @@
 const app = document.getElementById('main');
+// document => idex HTML . qui a l'élément ou id= main
 
-// const logo = document.createElement('img');
-// logo.src = 'logo.png';
+const container = document.createElement('div'); // document courant créer une div
+console.log(container);
 
-const container = document.createElement('div');
-container.setAttribute('class', 'container row');
+container.setAttribute('class', 'container row'); // setAttribute changer l'attribut 
 
 // app.appendChild(logo);
 app.appendChild(container);
 
-var request = new XMLHttpRequest();
+let request = new XMLHttpRequest();
 request.open('GET', 'https://api.thecatapi.com/v1/images/search?limit=12', true);
 request.onload = function () {
   // Begin accessing JSON data here
-  let data = JSON.parse(this.response);
+  let data = JSON.parse(this.response); // json.parse tableau
   console.log('Le resultat de la requete:',data);
   if (request.status >= 200 && request.status < 400) {
     data.forEach(cat => {
